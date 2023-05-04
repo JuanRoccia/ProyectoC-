@@ -28,3 +28,18 @@ M:\TECNICATURA PYTHON\SEGUNDO AÑO\Programacion C# , .NET\Proyecto1\ProyectoC-\T
 M:\TECNICATURA PYTHON\SEGUNDO AÑO\Programacion C# , .NET\Proyecto1\ProyectoC-\TeslaProject\TeslaProject\bin\Debug\net6.0\TeslaProject.pdb
 M:\TECNICATURA PYTHON\SEGUNDO AÑO\Programacion C# , .NET\Proyecto1\ProyectoC-\TeslaProject\TeslaProject\obj\Debug\net6.0\TeslaProject.genruntimeconfig.cache
 M:\TECNICATURA PYTHON\SEGUNDO AÑO\Programacion C# , .NET\Proyecto1\ProyectoC-\TeslaProject\TeslaProject\obj\Debug\net6.0\ref\TeslaProject.dll
+C:\Users\juanm\source\repos\ProyectoC#\ProyectoC-\TeslaProject\TeslaProject\bin\Debug\net6.0\TeslaProject.exe
+C:\Users\juanm\source\repos\ProyectoC#\ProyectoC-\TeslaProject\TeslaProject\bin\Debug\net6.0\TeslaProject.deps.json
+C:\Users\juanm\source\repos\ProyectoC#\ProyectoC-\TeslaProject\TeslaProject\bin\Debug\net6.0\TeslaProject.runtimeconfig.json
+C:\Users\juanm\source\repos\ProyectoC#\ProyectoC-\TeslaProject\TeslaProject\bin\Debug\net6.0\TeslaProject.dll
+C:\Users\juanm\source\repos\ProyectoC#\ProyectoC-\TeslaProject\TeslaProject\bin\Debug\net6.0\TeslaProject.pdb
+C:\Users\juanm\source\repos\ProyectoC#\ProyectoC-\TeslaProject\TeslaProject\obj\Debug\net6.0\TeslaProject.csproj.AssemblyReference.cache
+C:\Users\juanm\source\repos\ProyectoC#\ProyectoC-\TeslaProject\TeslaProject\obj\Debug\net6.0\TeslaProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\juanm\source\repos\ProyectoC#\ProyectoC-\TeslaProject\TeslaProject\obj\Debug\net6.0\TeslaProject.AssemblyInfoInputs.cache
+C:\Users\juanm\source\repos\ProyectoC#\ProyectoC-\TeslaProject\TeslaProject\obj\Debug\net6.0\TeslaProject.AssemblyInfo.cs
+C:\Users\juanm\source\repos\ProyectoC#\ProyectoC-\TeslaProject\TeslaProject\obj\Debug\net6.0\TeslaProject.csproj.CoreCompileInputs.cache
+C:\Users\juanm\source\repos\ProyectoC#\ProyectoC-\TeslaProject\TeslaProject\obj\Debug\net6.0\TeslaProject.dll
+C:\Users\juanm\source\repos\ProyectoC#\ProyectoC-\TeslaProject\TeslaProject\obj\Debug\net6.0\refint\TeslaProject.dll
+C:\Users\juanm\source\repos\ProyectoC#\ProyectoC-\TeslaProject\TeslaProject\obj\Debug\net6.0\TeslaProject.pdb
+C:\Users\juanm\source\repos\ProyectoC#\ProyectoC-\TeslaProject\TeslaProject\obj\Debug\net6.0\TeslaProject.genruntimeconfig.cache
+C:\Users\juanm\source\repos\ProyectoC#\ProyectoC-\TeslaProject\TeslaProject\obj\Debug\net6.0\ref\TeslaProject.dll

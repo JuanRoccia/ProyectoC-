@@ -6,11 +6,11 @@
         static void Main(string[] args)
         {
             //creo listas que van a contener los datos de cada tesla
-            List<string> tesla1 = new List<string>() { "S", "2021", "10000", "15000", "blue", "Pedro Perez" };
-            List<string> tesla2 = new List<string>() { "X", "2021", "20000", "25000", "grey", "Rodrigo Ramirez" };
-            List<string> tesla3 = new List<string>() { "Y", "2017", "30000", "35000", "red", "Pablo Torres" };
-            List<string> tesla4 = new List<string>() { "3", "2016", "40000", "45000", "green", "Ezequiel Ramirez" };
-            List<string> tesla5 = new List<string>() { "Y", "2017", "50000", "55000", "black", "Franco Ramirez" };
+            List<string> tesla1 = new List<string>() { "0", "S", "2021", "10000", "15000", "blue", "Pedro Perez" };
+            List<string> tesla2 = new List<string>() { "1", "X", "2021", "20000", "25000", "grey", "Rodrigo Ramirez" };
+            List<string> tesla3 = new List<string>() { "2", "Y", "2017", "30000", "35000", "red", "Pablo Torres" };
+            List<string> tesla4 = new List<string>() { "3", "3", "2016", "40000", "45000", "green", "Ezequiel Ramirez" };
+            List<string> tesla5 = new List<string>() { "4", "Y", "2017", "50000", "55000", "black", "Franco Ramirez" };
 
             //creo una lista de listas para ir guardando listas pertenecientes a cada tesla
             List<List<string>> listOfTeslas = new List<List<string>>();
@@ -20,6 +20,7 @@
             listOfTeslas.Add(tesla4);
             listOfTeslas.Add(tesla5);
 
+            int id = 5;
             while (true)
             {
                 Console.WriteLine("BIENVENIDO AL PROGRAMA DE TESLA, INGRESE LA OPCION QUE DESEA REALIZAR");
@@ -41,6 +42,10 @@
                     List<string> newTesla = new List<string>() { };
 
                     Console.WriteLine("Va a dar de alta un tesla");
+
+                    // Id a string
+                    string stringID = id.ToString();
+                    newTesla.Add(stringID);
 
                     //voy asignando variables para dar Add a la lista newTesla creada anteriormente
                     Console.WriteLine("paso 1 de 6, ingrese el modelo:");
@@ -71,7 +76,7 @@
                     listOfTeslas.Add(newTesla);
 
                     Console.WriteLine("Agrego un tesla correctamente");
-
+                    id += 1;
                 }
                 else if
                     (respuesta == "2")
