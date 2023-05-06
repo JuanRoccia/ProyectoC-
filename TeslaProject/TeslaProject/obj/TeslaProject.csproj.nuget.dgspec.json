@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "M:\\TECNICATURA PYTHON\\SEGUNDO AÑO\\Programacion C# , .NET\\proyecto\\TeslaProject\\TeslaProject\\TeslaProject.csproj": {}
+    "C:\\Users\\juanm\\source\\repos\\ProyectoC#\\ProyectoC-\\TeslaProject\\TeslaProject\\TeslaProject.csproj": {}
   },
   "projects": {
-    "M:\\TECNICATURA PYTHON\\SEGUNDO AÑO\\Programacion C# , .NET\\proyecto\\TeslaProject\\TeslaProject\\TeslaProject.csproj": {
+    "C:\\Users\\juanm\\source\\repos\\ProyectoC#\\ProyectoC-\\TeslaProject\\TeslaProject\\TeslaProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "M:\\TECNICATURA PYTHON\\SEGUNDO AÑO\\Programacion C# , .NET\\proyecto\\TeslaProject\\TeslaProject\\TeslaProject.csproj",
+        "projectUniqueName": "C:\\Users\\juanm\\source\\repos\\ProyectoC#\\ProyectoC-\\TeslaProject\\TeslaProject\\TeslaProject.csproj",
         "projectName": "TeslaProject",
-        "projectPath": "M:\\TECNICATURA PYTHON\\SEGUNDO AÑO\\Programacion C# , .NET\\proyecto\\TeslaProject\\TeslaProject\\TeslaProject.csproj",
-        "packagesPath": "C:\\Users\\compu\\.nuget\\packages\\",
-        "outputPath": "M:\\TECNICATURA PYTHON\\SEGUNDO AÑO\\Programacion C# , .NET\\proyecto\\TeslaProject\\TeslaProject\\obj\\",
+        "projectPath": "C:\\Users\\juanm\\source\\repos\\ProyectoC#\\ProyectoC-\\TeslaProject\\TeslaProject\\TeslaProject.csproj",
+        "packagesPath": "C:\\Users\\juanm\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\juanm\\source\\repos\\ProyectoC#\\ProyectoC-\\TeslaProject\\TeslaProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\compu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\juanm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
