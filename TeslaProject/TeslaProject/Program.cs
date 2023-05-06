@@ -1,11 +1,15 @@
-﻿namespace TeslaProject
+﻿using System.Colletions.Generic;
+
+namespace TeslaProject
 {
 
     internal class Program
     {
         static void Main(string[] args)
         {
+
             //creo listas que van a contener los datos de cada tesla
+
             List<string> tesla1 = new List<string>() { "0", "S", "2021", "10000", "15000", "blue", "Pedro Perez" };
             List<string> tesla2 = new List<string>() { "1", "X", "2021", "20000", "25000", "grey", "Rodrigo Ramirez" };
             List<string> tesla3 = new List<string>() { "2", "Y", "2017", "30000", "35000", "red", "Pablo Torres" };
@@ -77,6 +81,9 @@
 
                     Console.WriteLine("Agrego un tesla correctamente");
                     id += 1;
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine("=======================================================================");
                 }
                 else if
                     (respuesta == "2")
@@ -85,15 +92,108 @@
                     Console.WriteLine("Ingrese el numero de tesla que desea eliminar");
                     int valor = Convert.ToInt32(Console.ReadLine());
                     listOfTeslas.RemoveAt(valor);
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine("=======================================================================");
 
                 }
                 else if (respuesta == "3")
                 {
                     Console.WriteLine("listado de tesla ordenados por año");
+
+                    List<string> listanio = new List<string>();
+
+                    string anio;
+                    //con el indice de los años,creo una lista 
+                    for (int i = 0; i < listOfTeslas.Count; i++)
+                    {
+
+                        anio = listOfTeslas[i][2];
+                        listanio.Add(anio);
+                    }
+
+                    //Ordeno la lista
+                    listanio.Sort();
+
+
+                    List<List<string>> listastring = listOfTeslas;
+                    List<List<string>> nuevalista = new List<List<string>>();
+                    string valorstr;
+
+                    //se rearma la lista original, por orden de año
+                    for (int j = 0; j < listOfTeslas.Count; j++)
+                    {
+                        valorstr = listanio[j];
+
+                        for (int i = 0; i < listOfTeslas.Count; i++)
+                        {
+
+                            if (listOfTeslas[i].Contains(valorstr))
+                            {
+                                //si el valor no existe se agrega a la lista(evita repetidos)
+                                if (nuevalista.Contains(listOfTeslas[i]) == false)
+                                {
+                                    nuevalista.Add(listOfTeslas[i]);
+                                }
+                            }
+                        }
+                    }
+
+                    //imprimo la lista en orden
+                    foreach (var list in nuevalista)
+                    {
+                        Console.WriteLine(String.Join(", ", list));
+                    }
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine("=======================================================================");
+
+
                 }
                 else if (respuesta == "4")
                 {
                     Console.WriteLine("listado de tesla ordenados por kilometraje");
+                    List<string> listakm = new List<string>();
+                    string km;
+                    //con el indice de los km,creo una lista 
+                    for (int i = 0; i < listOfTeslas.Count; i++)
+                    {
+
+                        km = listOfTeslas[i][3];
+                        listakm.Add(km);
+                    }
+                    listakm.Sort();
+                    List<List<string>> listastringkm = listOfTeslas;
+                    List<List<string>> nuevalistakm = new List<List<string>>();
+                    string valorstrkm;
+                    for (int j = 0; j < listOfTeslas.Count; j++)
+                    {
+                        valorstrkm = listakm[j];
+
+                        for (int i = 0; i < listOfTeslas.Count; i++)
+                        {
+
+                            if (listOfTeslas[i].Contains(valorstrkm))
+                            {
+                                //si el valor no existe se agrega a la lista(evita repetidos)
+                                if (nuevalistakm.Contains(listOfTeslas[i]) == false)
+                                {
+                                    nuevalistakm.Add(listOfTeslas[i]);
+                                }
+                            }
+                        }
+                    }
+                    foreach (var list in nuevalistakm)
+                    {
+                        Console.WriteLine(string.Join(", ", list));
+                    }
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine("=======================================================================");
+
+
+
+
                 }
                 else if (respuesta == "5")
                 {
