@@ -1,231 +1,192 @@
-﻿using System.Colletions.Generic;
-
-namespace TeslaProject
+﻿namespace RegistroTesla
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
     internal class Program
     {
+        // ========================================================== //
+        // Estructura para almacenar información de un Tesla
+        struct TeslaInfo
+        {
+            public int Id;
+            public string Model;
+            public int Year;
+            public double KmA;
+            public double KmS;
+            public string Color;
+            public string Owner;
+        }
+
         static void Main(string[] args)
         {
+            // ========================================================== //
+            // Lista para guardar en el registro de cada TeslaInfo
+            List<TeslaInfo> teslaList = new List<TeslaInfo>();
 
-            //creo listas que van a contener los datos de cada tesla
+            // Teslas por defecto
+            TeslaInfo tesla1 = new TeslaInfo { Id = 1, Model = "S", Year = 2023, KmA = 10000, KmS = 15000, Color = "blue", Owner = "Pedro Perez" };
+            TeslaInfo tesla2 = new TeslaInfo { Id = 2, Model = "X", Year = 2012, KmA = 20000, KmS = 25000, Color = "grey", Owner = "Rodrigo Ramirez" };
+            TeslaInfo tesla3 = new TeslaInfo { Id = 3, Model = "Y", Year = 2017, KmA = 30000, KmS = 35000, Color = "red", Owner = "Pablo Torres" };
+            teslaList.Add(tesla1);
+            teslaList.Add(tesla2);
+            teslaList.Add(tesla3);
 
-            List<string> tesla1 = new List<string>() { "0", "S", "2021", "10000", "15000", "blue", "Pedro Perez" };
-            List<string> tesla2 = new List<string>() { "1", "X", "2021", "20000", "25000", "grey", "Rodrigo Ramirez" };
-            List<string> tesla3 = new List<string>() { "2", "Y", "2017", "30000", "35000", "red", "Pablo Torres" };
-            List<string> tesla4 = new List<string>() { "3", "3", "2016", "40000", "45000", "green", "Ezequiel Ramirez" };
-            List<string> tesla5 = new List<string>() { "4", "Y", "2017", "50000", "55000", "black", "Franco Ramirez" };
-
-            //creo una lista de listas para ir guardando listas pertenecientes a cada tesla
-            List<List<string>> listOfTeslas = new List<List<string>>();
-            listOfTeslas.Add(tesla1);
-            listOfTeslas.Add(tesla2);
-            listOfTeslas.Add(tesla3);
-            listOfTeslas.Add(tesla4);
-            listOfTeslas.Add(tesla5);
-
-            int id = 5;
+            // Inicio del ID
+            int id = 1;
+            // Si la lista ya cuenta con objetos, el nuevo id debe ser el mayor
+            if (teslaList.Count > 0)
+            {
+                int maxId = teslaList.Max(tesla => tesla.Id);
+                id = maxId + 1;
+            }
+            // Inicio del bucle
             while (true)
             {
-                Console.WriteLine("BIENVENIDO AL PROGRAMA DE TESLA, INGRESE LA OPCION QUE DESEA REALIZAR");
-                Console.WriteLine("=======================================================================");
-                Console.WriteLine("1 - dar de alta un tesla");
-                Console.WriteLine("2 - eliminar un tesla");
-                Console.WriteLine("3 - mostrar listado tesla ordenado por año");
-                Console.WriteLine("4 - mostrar listado tesla ordenado por kilometros");
-                Console.WriteLine("5 - mostrar el tesla con mas km");
-                Console.WriteLine("6 - mostrar la descripción de un tesla");
-                Console.WriteLine("7 - salir del programa");
-                Console.WriteLine("8 - ver lista completa de teslas");
-                Console.WriteLine("=======================================================================");
-                string respuesta = Console.ReadLine();
+                // ========================================================== //
+                // Menu de opciones:
+                Console.WriteLine("\n¿Qué desea hacer?");
+                Console.WriteLine("1. Dar de alta un tesla.");
+                Console.WriteLine("2. Eliminar un tesla.");
+                Console.WriteLine("3. Mostrar un listado de los Tesla ordenados por año.");
+                Console.WriteLine("4. Reordenar por el listado de los Tesla por kms.");
+                Console.WriteLine("5. Mostrar el Tesla más kms.");
+                Console.WriteLine("6. Salir.\n");
+                int option = int.Parse(Console.ReadLine());
 
-                if (respuesta == "1")
+
+
+                // ========================================================== //
+                // Dar de alta un tesla.
+                if (option == 1)
                 {
-                    //creo una lista para ir guardando los datos del tesla que voy a dar de alta
-                    List<string> newTesla = new List<string>() { };
+                    Console.Write("Modelo: ");
+                    string model = Console.ReadLine();
 
-                    Console.WriteLine("Va a dar de alta un tesla");
+                    Console.Write("Año: ");
+                    int year = int.Parse(Console.ReadLine());
 
-                    // Id a string
-                    string stringID = id.ToString();
-                    newTesla.Add(stringID);
+                    Console.Write("Kilometraje Actual: ");
+                    double kma = double.Parse(Console.ReadLine());
 
-                    //voy asignando variables para dar Add a la lista newTesla creada anteriormente
-                    Console.WriteLine("paso 1 de 6, ingrese el modelo:");
-                    string modelo = Console.ReadLine();
-                    newTesla.Add(modelo);
+                    Console.Write("Kilometraje Service: ");
+                    double kms = double.Parse(Console.ReadLine());
 
-                    Console.WriteLine("paso 2 de 6, ingrese el año: ");
-                    string year = Console.ReadLine();
-                    newTesla.Add(year);
-
-                    Console.WriteLine("paso 3 de 6, ingrese el nombre y apellido del dueño: ");
-                    string owner = Console.ReadLine();
-                    newTesla.Add(owner);
-                    Console.WriteLine("paso 4 de 6, ingrese el color: ");
+                    Console.Write("Color: ");
                     string color = Console.ReadLine();
-                    newTesla.Add(color);
 
-                    Console.WriteLine("paso 5 de 6, ingrese el kilometraje actual del vehiculo: ");
-                    string kmActual = Console.ReadLine();
-                    newTesla.Add(kmActual);
+                    Console.Write("Dueño: ");
+                    string owner = Console.ReadLine();
 
-                    Console.WriteLine("paso 6 de 6, ingrese el kilometraje para realizar el proximo service: ");
-                    string kmService = Console.ReadLine();
-                    newTesla.Add(kmService);
+                    // Crear un nuevo TeslaInfo y asignar los valores ingresados
+                    TeslaInfo nuevoTesla = new TeslaInfo
+                    {
+                        Id = id,
+                        Model = model,
+                        Year = year,
+                        KmA = kma,
+                        KmS = kms,
+                        Color = color,
+                        Owner = owner
+                    };
 
+                    // Agregar el nuevo TeslaInfo a la lista general del registro
+                    teslaList.Add(nuevoTesla);
 
-                    //agrego la lista newTesla a la lista de teslas general(listOfTeslas)
-                    listOfTeslas.Add(newTesla);
-
-                    Console.WriteLine("Agrego un tesla correctamente");
+                    // Incremeno del id
                     id += 1;
-                    Console.WriteLine();
-                    Console.WriteLine();
-                    Console.WriteLine("=======================================================================");
                 }
-                else if
-                    (respuesta == "2")
-                {
-                    //voy a eliminar por indice de la lista listOfTeslas con RemoveAt(), convirtiendo el input en int
-                    Console.WriteLine("Ingrese el numero de tesla que desea eliminar");
-                    int valor = Convert.ToInt32(Console.ReadLine());
-                    listOfTeslas.RemoveAt(valor);
-                    Console.WriteLine();
-                    Console.WriteLine();
-                    Console.WriteLine("=======================================================================");
 
+
+
+                // ========================================================== //
+                // Eliminar un tesla.
+                if (option == 2)
+                {
+                    Console.WriteLine("Ingrese el ID del Tesla que desea eliminar:");
+                    int idIngresado = int.Parse(Console.ReadLine());
+
+                    // Buscar el Tesla a eliminar en la lista
+                    TeslaInfo teslaAEliminar = teslaList.Find(tesla => tesla.Id == idIngresado);
+
+                    teslaList.Remove(teslaAEliminar);
+
+                    // Esto borra por posicion de listas
+                    // teslaList.RemoveAt(idIngresado);
                 }
-                else if (respuesta == "3")
+
+
+
+                // ========================================================== //
+                // Mostrar un listado de los Tesla ordenados por año.
+                if (option == 3)
                 {
-                    Console.WriteLine("listado de tesla ordenados por año");
+                    // Ordenar la lista de Teslas por año
+                    var teslaListOrdenada = teslaList.OrderBy(tesla => tesla.Year).ToList();
 
-                    List<string> listanio = new List<string>();
-
-                    string anio;
-                    //con el indice de los años,creo una lista 
-                    for (int i = 0; i < listOfTeslas.Count; i++)
+                    Console.WriteLine("\nContenido de la lista ordenada por año:");
+                    foreach (TeslaInfo tesla in teslaListOrdenada)
                     {
-
-                        anio = listOfTeslas[i][2];
-                        listanio.Add(anio);
-                    }
-
-                    //Ordeno la lista
-                    listanio.Sort();
-
-
-                    List<List<string>> listastring = listOfTeslas;
-                    List<List<string>> nuevalista = new List<List<string>>();
-                    string valorstr;
-
-                    //se rearma la lista original, por orden de año
-                    for (int j = 0; j < listOfTeslas.Count; j++)
-                    {
-                        valorstr = listanio[j];
-
-                        for (int i = 0; i < listOfTeslas.Count; i++)
-                        {
-
-                            if (listOfTeslas[i].Contains(valorstr))
-                            {
-                                //si el valor no existe se agrega a la lista(evita repetidos)
-                                if (nuevalista.Contains(listOfTeslas[i]) == false)
-                                {
-                                    nuevalista.Add(listOfTeslas[i]);
-                                }
-                            }
-                        }
-                    }
-
-                    //imprimo la lista en orden
-                    foreach (var list in nuevalista)
-                    {
-                        Console.WriteLine(String.Join(", ", list));
-                    }
-                    Console.WriteLine();
-                    Console.WriteLine();
-                    Console.WriteLine("=======================================================================");
-
-
-                }
-                else if (respuesta == "4")
-                {
-                    Console.WriteLine("listado de tesla ordenados por kilometraje");
-                    List<string> listakm = new List<string>();
-                    string km;
-                    //con el indice de los km,creo una lista 
-                    for (int i = 0; i < listOfTeslas.Count; i++)
-                    {
-
-                        km = listOfTeslas[i][3];
-                        listakm.Add(km);
-                    }
-                    listakm.Sort();
-                    List<List<string>> listastringkm = listOfTeslas;
-                    List<List<string>> nuevalistakm = new List<List<string>>();
-                    string valorstrkm;
-                    for (int j = 0; j < listOfTeslas.Count; j++)
-                    {
-                        valorstrkm = listakm[j];
-
-                        for (int i = 0; i < listOfTeslas.Count; i++)
-                        {
-
-                            if (listOfTeslas[i].Contains(valorstrkm))
-                            {
-                                //si el valor no existe se agrega a la lista(evita repetidos)
-                                if (nuevalistakm.Contains(listOfTeslas[i]) == false)
-                                {
-                                    nuevalistakm.Add(listOfTeslas[i]);
-                                }
-                            }
-                        }
-                    }
-                    foreach (var list in nuevalistakm)
-                    {
-                        Console.WriteLine(string.Join(", ", list));
-                    }
-                    Console.WriteLine();
-                    Console.WriteLine();
-                    Console.WriteLine("=======================================================================");
-
-
-
-
-                }
-                else if (respuesta == "5")
-                {
-                    Console.WriteLine("tesla con mas kilometros");
-                }
-                else if (respuesta == "6")
-                {
-
-                    Console.WriteLine("6");
-                }
-                else if (respuesta == "7")
-                {
-                    Console.WriteLine("Hasta luego");
-                    break;
-
-                }
-                else if (respuesta == "8")
-                {
-                    foreach (var list in listOfTeslas)
-                    {
-                        Console.WriteLine(String.Join(", ", list));
+                        Console.WriteLine($"\nID: {tesla.Id}\nModelo: {tesla.Model}\nAño: {tesla.Year}\nKilometraje Actual: {tesla.KmA}\nKilometraje Service: {tesla.KmS}\nColor: {tesla.Color}\nDueño: {tesla.Owner}");
                     }
                 }
-                else
+
+
+
+                // ========================================================== //
+                // Reordenar por el listado de los Tesla por kms.
+                if (option == 4)
                 {
-                    Console.WriteLine("La opción ingresada no es valida");
+                    // Ordenar la lista de Teslas por kilometraje
+                    var teslaListOrdenada = teslaList.OrderBy(tesla => tesla.KmA).ToList();
+
+                    Console.WriteLine("\nContenido de la lista ordenada por kilometraje actual:");
+                    foreach (TeslaInfo tesla in teslaListOrdenada)
+                    {
+                        Console.WriteLine($"\nID: {tesla.Id}\nModelo: {tesla.Model}\nAño: {tesla.Year}\nKilometraje Actual: {tesla.KmA}\nKilometraje Service: {tesla.KmS}\nColor: {tesla.Color}\nDueño: {tesla.Owner}");
+                    }
                 }
 
+
+
+                // ========================================================== //
+                // Mostrar el Tesla más kms.
+                if (option == 5)
+                {
+                    // Encontrar el Tesla con más kilometraje
+                    var teslaConMasKm = teslaList.OrderByDescending(tesla => tesla.KmS).First();
+
+                    // Esto solo muestra el valor mas alto
+                    //var teslaConMas = teslaList.Max(tesla => tesla.KmS);
+
+                    Console.WriteLine("\nTesla con mayor kilometraje service:");
+                    Console.WriteLine($"\nID: {teslaConMasKm.Id}\nModelo: {teslaConMasKm.Model}\nAño: {teslaConMasKm.Year}\nKilometraje Actual: {teslaConMasKm.KmA}\nKilometraje Service: {teslaConMasKm.KmS}\nColor: {teslaConMasKm.Color}\nDueño: {teslaConMasKm.Owner}");
+                }
+
+
+
+                // ========================================================== //
+                // Finalizar el bucle.
+                if (option == 6) { Console.WriteLine("Hasta luego."); break; }
+
+
+
+                // ========================================================== //
+                // Para mostrar solo en opcion 1 o 2.
+                if (option == 1 || option == 2)
+                {
+                    // Mostrar elementos de los TeslaInfo en la lista general
+                    Console.WriteLine("\nContenido de la lista:");
+                    foreach (TeslaInfo tesla in teslaList)
+                    {
+                        Console.WriteLine($"\nID: {tesla.Id}\nModelo: {tesla.Model}\nAño: {tesla.Year}\nKilometraje Actual: {tesla.KmA}\nKilometraje Service: {tesla.KmS}\nColor: {tesla.Color}\nDueño: {tesla.Owner}");
+                    }
+                    // Mostrar el número de elementos TeslaInfo en la lista
+                    Console.WriteLine($"\nNúmero de Teslas en la lista: {teslaList.Count}");
+                }
             }
 
         }
-
     }
-
 }
