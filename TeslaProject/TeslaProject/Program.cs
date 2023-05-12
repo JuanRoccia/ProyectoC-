@@ -52,7 +52,9 @@
                 Console.WriteLine("3. Mostrar un listado de los Tesla ordenados por año.");
                 Console.WriteLine("4. Reordenar por el listado de los Tesla por kms.");
                 Console.WriteLine("5. Mostrar el Tesla más kms.");
-                Console.WriteLine("6. Salir.\n");
+                Console.WriteLine("6. Mostrar listado de teslas.");
+                Console.WriteLine("7. Salir.\n");
+
                 int option = int.Parse(Console.ReadLine());
 
 
@@ -108,10 +110,12 @@
                     int idIngresado = int.Parse(Console.ReadLine());
 
                     // Buscar el Tesla a eliminar en la lista
-                    // ( itera en la lista con las estructuras hasta que el valor sea igual al id ingresado )
                     TeslaInfo teslaAEliminar = teslaList.Find(tesla => tesla.Id == idIngresado);
-                    // ( Elimina la lista de estructuras cuyo id es igual al ingresado )
+
                     teslaList.Remove(teslaAEliminar);
+
+                    // Esto borra por posicion de listas
+                    // teslaList.RemoveAt(idIngresado);
                 }
 
 
@@ -120,14 +124,13 @@
                 // Mostrar un listado de los Tesla ordenados por año.
                 if (option == 3)
                 {
-                    // Ordenar la lista de Teslas por año de menor a mayor
+                    // Ordenar la lista de Teslas por año
                     var teslaListOrdenada = teslaList.OrderBy(tesla => tesla.Year).ToList();
-                    // ( Itera en la lista y devuelve los valores de cada estructura )
+
                     Console.WriteLine("\nContenido de la lista ordenada por año:");
                     foreach (TeslaInfo tesla in teslaListOrdenada)
                     {
-                        // Console.WriteLine($"\n[ ID: {tesla.Id}, Modelo: {tesla.Model}, Año: {tesla.Year}, Kilometraje Actual: {tesla.KmA}, Kilometraje Service: {tesla.KmS}, Color: {tesla.Color}, Dueño: {tesla.Owner} ]");
-                        Console.WriteLine($"\n[ Año: {tesla.Year}, Modelo: {tesla.Model}, Kilometraje Actual: {tesla.KmA}, Kilometraje Service: {tesla.KmS}, Color: {tesla.Color}, Dueño: {tesla.Owner} ]");
+                        Console.WriteLine($"ID: {tesla.Id}, Modelo: {tesla.Model}, Año: {tesla.Year}, Kilometraje Actual: {tesla.KmA}, Kilometraje Service: {tesla.KmS}, Color: {tesla.Color}, Dueño: {tesla.Owner}");
                     }
                 }
 
@@ -137,14 +140,13 @@
                 // Reordenar por el listado de los Tesla por kms.
                 if (option == 4)
                 {
-                    // Ordenar la lista de Teslas por kilometraje actual de menor a mayor
+                    // Ordenar la lista de Teslas por kilometraje
                     var teslaListOrdenada = teslaList.OrderBy(tesla => tesla.KmA).ToList();
-                    // ( Itera en la lista y devuelve los valores de cada estructura )
+
                     Console.WriteLine("\nContenido de la lista ordenada por kilometraje actual:");
                     foreach (TeslaInfo tesla in teslaListOrdenada)
                     {
-                        // Console.WriteLine($"\n[ ID: {tesla.Id}, Modelo: {tesla.Model}, Año: {tesla.Year}, Kilometraje Actual: {tesla.KmA}, Kilometraje Service: {tesla.KmS}, Color: {tesla.Color}, Dueño: {tesla.Owner} ]");
-                        Console.WriteLine($"\n[ Kilometraje Actual: {tesla.KmA}, Modelo: {tesla.Model}, Año: {tesla.Year}, Kilometraje Service: {tesla.KmS}, Color: {tesla.Color}, Dueño: {tesla.Owner} ]");
+                        Console.WriteLine($"ID: {tesla.Id}, Modelo: {tesla.Model}, Año: {tesla.Year}, Kilometraje Actual: {tesla.KmA}, Kilometraje Service: {tesla.KmS}, Color: {tesla.Color}, Dueño: {tesla.Owner}");
                     }
                 }
 
@@ -155,34 +157,34 @@
                 if (option == 5)
                 {
                     // Encontrar el Tesla con más kilometraje
-                    // ( Ordena de manera descendente en base al valor del KmA y toma el primer valor de la misma. )
-                    var teslaConMasKm = teslaList.OrderByDescending(tesla => tesla.KmA).First();
-                    // ( Devuelve los valores de la estructura de dicho tesla )
-                    Console.WriteLine("\nTesla con mayor kilometraje actual:");
+                    var teslaConMasKm = teslaList.OrderByDescending(tesla => tesla.KmS).First();
+
+                    // Esto solo muestra el valor mas alto
+                    //var teslaConMas = teslaList.Max(tesla => tesla.KmS);
+
+                    Console.WriteLine("\nTesla con mayor kilometraje service:");
                     Console.WriteLine($"\nID: {teslaConMasKm.Id}\nModelo: {teslaConMasKm.Model}\nAño: {teslaConMasKm.Year}\nKilometraje Actual: {teslaConMasKm.KmA}\nKilometraje Service: {teslaConMasKm.KmS}\nColor: {teslaConMasKm.Color}\nDueño: {teslaConMasKm.Owner}");
                 }
 
 
-
-                // ========================================================== //
-                // Finalizar el bucle.
-                if (option == 6) { Console.WriteLine("Hasta luego."); break; }
-
-
-
                 // ========================================================== //
                 // Para mostrar solo en opcion 1 o 2.
-                if (option == 1 || option == 2)
+                if (option == 1 || option == 2 || option == 6)
                 {
                     // Mostrar elementos de los TeslaInfo en la lista general
                     Console.WriteLine("\nContenido de la lista:");
                     foreach (TeslaInfo tesla in teslaList)
                     {
-                        Console.WriteLine($"\n[ ID: {tesla.Id}, Modelo: {tesla.Model}, Año: {tesla.Year}, Kilometraje Actual: {tesla.KmA}, Kilometraje Service: {tesla.KmS}, Color: {tesla.Color}, Dueño: {tesla.Owner} ]");
+                        Console.WriteLine($"\nID: {tesla.Id},Modelo: {tesla.Model}Año: {tesla.Year}Kilometraje Actual: {tesla.KmA}Kilometraje Service: {tesla.KmS}Color: {tesla.Color}Dueño: {tesla.Owner}");
                     }
                     // Mostrar el número de elementos TeslaInfo en la lista
                     Console.WriteLine($"\nNúmero de Teslas en la lista: {teslaList.Count}");
                 }
+
+                // ========================================================== //
+                // Finalizar el bucle.
+                if (option == 7) { Console.WriteLine("\nHasta luego."); break; }
+
             }
 
         }
