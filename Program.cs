@@ -63,20 +63,24 @@
                     newTesla.Add(year);
 
                     Console.WriteLine("paso 3 de 6, ingrese el kilometraje actual del vehiculo: ");
+
                     string kmActual = Console.ReadLine();
                     newTesla.Add(kmActual);
 
-                    // Aquí establecemos automáticamente el kilometraje del próximo servicio
-                    int kms = int.Parse(kmActual) + 5000;
-                    newTesla.Add(kms.ToString());
+                    Console.WriteLine("paso 4 de 6,  el kilometraje para realizar el proximo service: ");
+                    //Se busca el siguiente multiplo de 10000, utilizando int.Parse(), dividimos por 10mil, le sumamos 1 y lo multiplicamos por 10000
+                    int kmService = (int.Parse(kmActual) / 10000 + 1) * 10000;
+                    newTesla.Add(Convert.ToString(kmService));
+                    Console.WriteLine($"PROXIMO SERVICE A LOS: {kmService}");
 
-                    Console.WriteLine("paso 4 de 6, ingrese el color: ");
+                    Console.WriteLine("paso 5 de 6, ingrese el color: ");
                     string color = Console.ReadLine();
                     newTesla.Add(color.ToUpper());
 
-                    Console.WriteLine("paso 5 de 6, ingrese el nombre y apellido del dueño: ");
+                    Console.WriteLine("paso 6 de 6, ingrese el nombre y apellido del dueño: ");
                     string owner = Console.ReadLine();
                     newTesla.Add(owner.ToUpper());
+
 
                     //agrego la lista newTesla a la lista de teslas general(listOfTeslas)
                     listOfTeslas.Add(newTesla);
