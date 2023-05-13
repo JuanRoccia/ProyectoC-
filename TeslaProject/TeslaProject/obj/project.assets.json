@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\juanm\\source\\repos\\ProyectoC#\\ProyectoC-\\TeslaProject\\TeslaProject\\TeslaProject.csproj",
+      "projectUniqueName": "C:\\Users\\juanm\\source\\repos\\ProyectoC#\\TeslaProject\\TeslaProject\\TeslaProject.csproj",
       "projectName": "TeslaProject",
-      "projectPath": "C:\\Users\\juanm\\source\\repos\\ProyectoC#\\ProyectoC-\\TeslaProject\\TeslaProject\\TeslaProject.csproj",
+      "projectPath": "C:\\Users\\juanm\\source\\repos\\ProyectoC#\\TeslaProject\\TeslaProject\\TeslaProject.csproj",
       "packagesPath": "C:\\Users\\juanm\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\juanm\\source\\repos\\ProyectoC#\\ProyectoC-\\TeslaProject\\TeslaProject\\obj\\",
+      "outputPath": "C:\\Users\\juanm\\source\\repos\\ProyectoC#\\TeslaProject\\TeslaProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\juanm\\AppData\\Roaming\\NuGet\\NuGet.Config",
