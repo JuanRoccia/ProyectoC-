@@ -94,27 +94,36 @@
                 else if
                     (respuesta == "2")
                 {
+                    // Mostrar id's disponibles
+                    Console.WriteLine("ID's de Tesla disponibles");
+                    for (int i = 0; i < listOfTeslas.Count; i++)
+                    {
+                        Console.Write(listOfTeslas[i][0] + " | ");
+                    }
+
                     //voy a eliminar por indice de la lista listOfTeslas con RemoveAt(), utilizando el ID de tesla
-                    Console.WriteLine("Ingrese el ID del tesla que desea eliminar");
+                    Console.Write("\nIngrese el ID del tesla que desea eliminar: ");
                     string var = Console.ReadLine();
+
+                    bool idEncontrado = false;
 
                     //voy a recorrer la lista de teslas y buscar el ID ingresado que coincida con ID de tesla
                     for (int i = 0; i < listOfTeslas.Count; i++)
+                    {
                         if (listOfTeslas[i][0] == var)
                         {
                             //voy a eliminar la lista cuyo ID coincida con la posicion en listOfTeslas
                             listOfTeslas.RemoveAt(i);
+                            Console.WriteLine($"Elimino el tesla con ID: {var}");
+                            idEncontrado = true;
                             break;
                         }
-                        else
-                        {
-                            Console.WriteLine("Debe ingresar un numero id que coincida con un tesla");
-                        }
+                    }
 
-                    //int valor = Convert.ToInt32(Console.ReadLine());
-                    //listOfTeslas.RemoveAt(valor);
-
-
+                    if (!idEncontrado)
+                    {
+                        Console.WriteLine("Debe ingresar un numero id que coincida con un tesla");
+                    }
                 }
                 //FIN OCPION 2
 
