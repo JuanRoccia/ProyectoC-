@@ -69,6 +69,10 @@ Para ordenar los Teslas por año o por kilometraje, se decidió crear una lista 
 
 Se estableció que cada Tesla necesita un servicio cada 5000 km. Esto es una simplificación y podría no ser adecuado en la vida real. Sin embargo, para los fines de este programa, es una opción razonable que facilita la implementación.
 
+## Kilometraje del servicio - Nueva versión
+
+El kilometraje para el próximo servicio, se calcula automáticamente. Para hacer esto, se toma el kilometraje actual, se divide por 10,000 (ignorando el residuo, porque estamos usando una división de enteros), se le suma 1 y luego se multiplica por 10,000. Este cálculo encuentra el próximo múltiplo de 10,000 después del kilometraje actual, que se utiliza como el kilometraje para el próximo servicio. 
+
 ## Kilometraje máximo
 
 Para encontrar el Tesla con el mayor kilometraje, se crea una lista con los kilometrajes, se ordena y se toma el último elemento. Luego, se busca este kilometraje en la lista de Teslas para encontrar el Tesla correspondiente. Esta es una forma simple y efectiva de encontrar el Tesla con el mayor kilometraje.
@@ -80,4 +84,3 @@ Además, cualquier cuestión que se asuma o necesite aclarar, está debidamente 
 ## Autores
 
 Fernandes Carlos Andres, Roccia Juan Manuel  y Tapia Ivan Gonzalo.
-
