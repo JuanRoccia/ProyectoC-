@@ -65,13 +65,9 @@ El programa en cada paso, le pide al usuario que ingrese la información necesar
 
 Para ordenar los Teslas por año o por kilometraje, se decidió crear una lista separada con los años o los kilometrajes, ordenar esta lista y luego usarla para reordenar la lista original de Teslas. Este enfoque es simple y efectivo.
 
-## Kilometraje del servicio
+## Kilometraje del servicio 
 
-Se estableció que cada Tesla necesita un servicio cada 5000 km. Esto es una simplificación y podría no ser adecuado en la vida real. Sin embargo, para los fines de este programa, es una opción razonable que facilita la implementación.
-
-## Kilometraje del servicio - Nueva versión
-
-El kilometraje para el próximo servicio, se calcula automáticamente. Para hacer esto, se toma el kilometraje actual, se divide por 10,000 (ignorando el residuo, porque estamos usando una división de enteros), se le suma 1 y luego se multiplica por 10,000. Este cálculo encuentra el próximo múltiplo de 10,000 después del kilometraje actual, que se utiliza como el kilometraje para el próximo servicio. 
+El kilometraje para el servicio, se calcula automáticamente. Se toma el kilometraje actual, se divide por 10,000 (ignorando el residuo, porque estamos usando una división de enteros), se le suma 1 y luego se multiplica por 10,000. Este cálculo encuentra el próximo múltiplo de 10,000 después del kilometraje actual, que se utiliza como el kilometraje para el próximo servicio. 
 
 ## Kilometraje máximo
 
