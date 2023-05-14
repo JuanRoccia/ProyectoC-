@@ -1,31 +1,33 @@
 ﻿namespace TeslaProject
 {
+    using System;
+    using System.Collections.Generic;
     internal class Program
     {
         static void Main(string[] args)
         {
-            //creo listas que van a contener los datos de cada tesla, el primer valor de la lista es el ID
+            // Creo listas que van a contener los datos de cada tesla:
+            //ID|modelo|año   |kmActual |kmService|color| nombre dueño;
+            List<string> tesla1 = new List<string>() { "0", "S", "2021", "10000", "20000", "BLUE", "PEDRO PEREZ" };
+            List<string> tesla2 = new List<string>() { "1", "X", "2021", "20000", "30000", "GREY", "RODRIGO RAMIREZ" };
+            List<string> tesla3 = new List<string>() { "2", "Y", "2017", "35000", "40000", "RED", "PABLO TORRES" };
+            List<string> tesla4 = new List<string>() { "3", "3", "2016", "45000", "50000", "GREEN", "EZEQUIEL RAMIREZ" };
+            List<string> tesla5 = new List<string>() { "4", "Y", "2017", "55000", "60000", "BLACK", "FRANCO GUTIERREZ" };
 
-            List<string> tesla1 = new List<string>() { "0", "S", "2021", "10000", "15000", "BLUE", "PEDRO PEREZ" };
-            List<string> tesla2 = new List<string>() { "1", "X", "2021", "20000", "25000", "GREY", "RODRIGO RAMIREZ" };
-            List<string> tesla3 = new List<string>() { "2", "Y", "2017", "30000", "35000", "RED", "PABLO TORRES" };
-            List<string> tesla4 = new List<string>() { "3", "3", "2016", "40000", "45000", "GREEN", "EZEQUIEL RAMIREZ" };
-            List<string> tesla5 = new List<string>() { "4", "Y", "2017", "50000", "55000", "BLACK", "FRANCO GUTIERREZ" };
-
-            //creo una lista de listas para ir guardando listas pertenecientes a cada tesla
+            // Creo una lista de listas para ir guardando listas pertenecientes a cada tesla
             List<List<string>> listOfTeslas = new List<List<string>>();
 
-            //agrego cada tesla a la lista de teslas con List.Add();
+            // Agrego cada tesla a la lista de teslas con List.Add();
             listOfTeslas.Add(tesla1);
             listOfTeslas.Add(tesla2);
             listOfTeslas.Add(tesla3);
             listOfTeslas.Add(tesla4);
             listOfTeslas.Add(tesla5);
 
-            //ID DE TESLAS, comienza en 5 ya que anteriormente creamos los primeros teslas
+            // ID DE TESLAS, comienza en 5 ya que anteriormente creamos los primeros teslas
             int id = 5;
 
-            //Con el bucle while controlamos la ejecución del programa
+            // Con el bucle while controlamos la ejecución del programa
             while (true)
             {
                 Console.WriteLine("=======================================================================");
@@ -41,10 +43,10 @@
                 Console.WriteLine("=======================================================================");
                 string respuesta = Console.ReadLine();
 
-                //OPCION 1 DAR DE ALTA UN TESLA
+                // OPCIÓN 1 DAR DE ALTA UN TESLA
                 if (respuesta == "1")
                 {
-                    //creo una lista para ir guardando los datos del tesla que voy a dar de alta
+                    // Creo una lista para ir guardando los datos del tesla que voy a dar de alta
                     List<string> newTesla = new List<string>() { };
 
                     Console.WriteLine("Va a dar de alta un tesla");
@@ -53,70 +55,70 @@
                     string stringID = id.ToString();
                     newTesla.Add(stringID);
 
-                    //voy asignando variables que ingresa el usuario, con .Add(variable), a la lista newTesla creada anteriormente
-                    Console.WriteLine("paso 1 de 6, ingrese el modelo: ");
+                    // Voy asignando variables que ingresa el usuario, con .Add(variable), a la lista newTesla creada anteriormente
+                    Console.WriteLine("Paso 1 de 5, ingrese el modelo: ");
                     string modelo = Console.ReadLine();
                     newTesla.Add(modelo.ToUpper());
 
-                    Console.WriteLine("paso 2 de 6, ingrese el año: ");
+                    Console.WriteLine("Paso 2 de 5, ingrese el año: ");
                     string year = Console.ReadLine();
                     newTesla.Add(year);
 
-                    Console.WriteLine("paso 3 de 6, ingrese el kilometraje actual del vehiculo: ");
-
+                    Console.WriteLine("Paso 3 de 5, ingrese el kilometraje actual del vehiculo: ");
+                    // Este dato debe ser un número obligatoriamente, ya que luego se realizarán operaciones matemáticas con el mismo
                     string kmActual = Console.ReadLine();
                     newTesla.Add(kmActual);
 
-                    Console.WriteLine("paso 4 de 6,  el kilometraje para realizar el proximo service: ");
-                    //Se busca el siguiente multiplo de 10000, utilizando int.Parse(), dividimos por 10mil, le sumamos 1 y lo multiplicamos por 10000
+                    // Se implementa la lógica que el km de service sea cada 10000km(sería a los 10, 20, 30, 40mil, etc.)
+                    // Se busca el siguiente multiplo de 10000, utilizando int.Parse(), dividimos por 10mil, le sumamos 1 y lo multiplicamos por 10000
                     int kmService = (int.Parse(kmActual) / 10000 + 1) * 10000;
                     newTesla.Add(Convert.ToString(kmService));
-                    Console.WriteLine($"PROXIMO SERVICE A LOS: {kmService}");
+                    Console.WriteLine($"El próximo service es a los: {kmService}km.");
 
-                    Console.WriteLine("paso 5 de 6, ingrese el color: ");
+                    Console.WriteLine("Paso 4 de 5, ingrese el color: ");
                     string color = Console.ReadLine();
                     newTesla.Add(color.ToUpper());
 
-                    Console.WriteLine("paso 6 de 6, ingrese el nombre y apellido del dueño: ");
+                    Console.WriteLine("Paso 5 de 6, ingrese el nombre y apellido del dueño: ");
                     string owner = Console.ReadLine();
                     newTesla.Add(owner.ToUpper());
 
 
-                    //agrego la lista newTesla a la lista de teslas general(listOfTeslas)
+                    // Agrego la lista newTesla a la lista de teslas general(listOfTeslas)
                     listOfTeslas.Add(newTesla);
 
-                    Console.WriteLine("Agrego un tesla correctamente");
+                    Console.WriteLine("Agregó un tesla correctamente");
 
-                    //incrementamos el id cada vez que almacenamos un tesla
+                    // Incrementamos el id cada vez que almacenamos un tesla
                     id += 1;
                 }
-                //FIN OPCION 1
+                // FIN OPCIÓN 1
 
-                //OPCION 2 ELIMINAR UN TESLA
+                // OPCIÓN 2 ELIMINAR UN TESLA
                 else if
                     (respuesta == "2")
                 {
                     // Mostrar id's disponibles
-                    Console.WriteLine("ID's de Tesla disponibles");
+                    Console.WriteLine("ID's de Teslas disponibles");
                     for (int i = 0; i < listOfTeslas.Count; i++)
                     {
                         Console.Write(listOfTeslas[i][0] + " | ");
                     }
 
-                    //voy a eliminar por indice de la lista listOfTeslas con RemoveAt(), utilizando el ID de tesla
+                    // Voy a eliminar por índice de la lista listOfTeslas con RemoveAt(), utilizando el ID de tesla
                     Console.Write("\nIngrese el ID del tesla que desea eliminar: ");
                     string var = Console.ReadLine();
 
                     bool idEncontrado = false;
 
-                    //voy a recorrer la lista de teslas y buscar el ID ingresado que coincida con ID de tesla
+                    // Voy a recorrer la lista de teslas y buscar el ID ingresado que coincida con ID de tesla
                     for (int i = 0; i < listOfTeslas.Count; i++)
                     {
                         if (listOfTeslas[i][0] == var)
                         {
-                            //voy a eliminar la lista cuyo ID coincida con la posicion en listOfTeslas
+                            // Voy a eliminar la lista cuyo ID coincida con la posición en listOfTeslas
                             listOfTeslas.RemoveAt(i);
-                            Console.WriteLine($"Elimino el tesla con ID: {var}");
+                            Console.WriteLine($"Eliminó el tesla con ID: {var}");
                             idEncontrado = true;
                             break;
                         }
@@ -124,20 +126,20 @@
 
                     if (!idEncontrado)
                     {
-                        Console.WriteLine("Debe ingresar un numero id que coincida con un tesla");
+                        Console.WriteLine("Debe ingresar un número ID que coincida con un tesla.");
                     }
                 }
-                //FIN OCPION 2
+                // FIN OCPIÓN 2
 
-                //OPCION 3 MOSTRAR EL LISTADO ORDENADO POR AÑO
+                // OPCIÓN 3 MOSTRAR EL LISTADO ORDENADO POR AÑO
                 else if (respuesta == "3")
                 {
-                    Console.WriteLine("listado de tesla ordenados por año");
+                    Console.WriteLine("Listado de tesla ordenados por año");
 
                     List<int> listanio = new List<int>();
 
                     int anio;
-                    //con el indice de los años,creo una lista 
+                    // Con el índice de los años,creo una lista 
                     for (int i = 0; i < listOfTeslas.Count; i++)
                     {
 
@@ -145,7 +147,7 @@
                         listanio.Add(anio);
                     }
 
-                    //Ordeno la lista
+                    // Ordeno la lista
                     listanio.Sort();
 
 
@@ -153,7 +155,7 @@
                     List<List<string>> nuevalista = new List<List<string>>();
                     string valorstr;
 
-                    //se rearma la lista original, por orden de año
+                    // Se rearma la lista original, por orden de año
                     for (int j = 0; j < listOfTeslas.Count; j++)
                     {
                         valorstr = Convert.ToString(listanio[j]);
@@ -163,7 +165,7 @@
 
                             if (listOfTeslas[i].Contains(valorstr))
                             {
-                                //si el valor no existe se agrega a la lista(evita repetidos)
+                                // Si el valor no existe se agrega a la lista(evita repetidos)
                                 if (nuevalista.Contains(listOfTeslas[i]) == false)
                                 {
                                     nuevalista.Add(listOfTeslas[i]);
@@ -172,7 +174,7 @@
                         }
                     }
 
-                    //imprimo la lista en orden
+                    // Imprimo la lista en orden
                     foreach (var list in nuevalista)
                     {
                         Console.WriteLine(String.Join(", ", list));
@@ -182,15 +184,15 @@
                     Console.WriteLine("=======================================================================");
 
                 }
-                //FIN OPCION 3
+                //FIN OPCIÓN 3
 
-                //OPCION 4 MOSTRAR EL LISTADO ORDENADO POR KILOMETRAJE
+                //OPCIÓN 4 MOSTRAR EL LISTADO ORDENADO POR KILOMETRAJE
                 else if (respuesta == "4")
                 {
                     Console.WriteLine("listado de tesla ordenados por kilometraje");
                     List<int> listakm = new List<int>();
                     int km;
-                    //con el indice de los km,creo una lista 
+                    // Con el índice de los km,creo una lista 
                     for (int i = 0; i < listOfTeslas.Count; i++)
                     {
 
@@ -210,7 +212,7 @@
 
                             if (listOfTeslas[i].Contains(valorstrkm))
                             {
-                                //si el valor no existe se agrega a la lista(evita repetidos)
+                                // Si el valor no existe se agrega a la lista(evita repetidos)
                                 if (nuevalistakm.Contains(listOfTeslas[i]) == false)
                                 {
                                     nuevalistakm.Add(listOfTeslas[i]);
@@ -227,15 +229,15 @@
                     Console.WriteLine("=======================================================================");
 
                 }
-                //FIN OPCION 4
+                // FIN OPCIÓN 4
 
-                //OPCION 5 MOSTRAR EL TESLA CON MAS KM
+                // ÓPCION 5 MOSTRAR EL TESLA CON MAS KM
                 else if (respuesta == "5")
                 {
                     Console.WriteLine("tesla con mas kilometros");
                     List<int> listakm = new List<int>();
                     int km;
-                    //con el indice de los km,creo una lista 
+                    // Con el índice de los km,creo una lista 
                     for (int i = 0; i < listOfTeslas.Count; i++)
                     {
 
@@ -243,44 +245,44 @@
                         listakm.Add(km);
                     }
 
+                    // Se ordena la lista
                     listakm.Sort();
-
+                    // Agarro el último valor de la lista ordenada
                     string ultimo = Convert.ToString(listakm[listakm.Count - 1]);
-
+                    // Busco ese valor en la lista de teslas
                     List<string> ult = listOfTeslas.Find(x => x.Contains(ultimo));
 
                     Console.WriteLine($" Modelo: {ult[1]}, Kms: {ult[3]}, Año: {ult[2]}, Dueño: {ult[6]}");
 
                 }
-                //FIN OPCION 5
+                // FIN OPCIÓN 5
 
-                //OPCION 6 VER LISTADO DE TESLAS
+                // OPCIÓN 6 VER LISTADO DE TESLAS
                 else if (respuesta == "6")
                 {
+                    // Se recorre la lista de teslas, y se separa cada elemento de cada tesla con una ", " usando .Join()
                     foreach (var list in listOfTeslas)
                     {
                         Console.WriteLine(String.Join(", ", list));
                     }
                 }
-                //FIN OPCION 6
+                // FIN OPCIÓN 6
 
-                //OPCION 7 CERRAR EL PROGRAMA
+                // OPCIÓN 7 CERRAR EL PROGRAMA
                 else if (respuesta == "7")
                 {
                     Console.WriteLine("Hasta luego");
                     break;
                 }
-                //FIN OPCION 7
+                //FIN OPCIÓN 7
 
-                //OPCION AUXILIAR O NO VALIDA
+                //OPCIÓN AUXILIAR O NO VALIDA
                 else
                 {
                     Console.WriteLine("La opción ingresada no es valida");
                 }
-                //FIN OPCION AUX.
-
+                //FIN OPCIÓN AUX.
             }
-
         }
 
     }
